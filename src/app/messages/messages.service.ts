@@ -1,21 +1,19 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Message } from './message';
-import { config } from '../shared/config';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
+import { RestService } from '../shared/rest.service';
 
 @Injectable()
 export class MessagesService {
   private messages: Message[] = [];
   private messagesSubject = new Subject<Message[]>();
 
-  constructor(private http: HttpClient) {
+  constructor(private restService: RestService) {
   }
 
   loadMessages(): void {
-    this.http
-    .get<Message[]>(config.api_url + 'messages')
+    this.restService.loadMessages()
     .subscribe((messages) => {
       if (messages !== this.messages) {
         this.messages = messages;

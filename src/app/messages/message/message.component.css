@@ -21,10 +21,13 @@
 }
 
 .message-date {
-    color: blue;
+    color: rgb(184, 184, 184);
 }
 
 .alternate {
-    background-color: grey;
-    color: white;
+    background-color: rgb(213, 224, 231);
+}
+
+.message-hide {
+    text-align: left;
 }

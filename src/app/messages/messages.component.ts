@@ -35,7 +35,9 @@ export class MessagesComponent implements OnInit {
     this.messages.forEach((message) => {
       const regex = /#(\w+)/g;
       const matches = message.content.match(regex);
-      matches.forEach((hashtag) => hashtags.push(hashtag));
+      if (matches) {
+        matches.forEach((hashtag) => hashtags.push(hashtag));
+      }
     });
     this.hashtagFound.emit(hashtags);
   }
