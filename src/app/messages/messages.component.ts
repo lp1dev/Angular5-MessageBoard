@@ -10,15 +10,23 @@ import { AfterViewChecked } from '@angular/core/src/metadata/lifecycle_hooks';
 })
 export class MessagesComponent implements OnInit {
   @Output() hashtagFound = new EventEmitter<string[]>();
-  messages: Message[];
+  messages: Message[] = [];
   class: 'shadowed';
 
-  constructor(messagesService: MessagesService) {
-    this.messages = messagesService.getMessages();
+  constructor(public messagesService: MessagesService) {
   }
 
+
   ngOnInit() {
-    this.parseHashtags();
+    this.messagesService
+    .getMessagesObservable()
+    .subscribe(
+      (response) => {
+        this.messages = response;
+        this.parseHashtags();
+      }, (error) => {
+        console.error(error);
+      });
   }
 
   parseHashtags() {
