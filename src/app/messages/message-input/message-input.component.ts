@@ -9,7 +9,6 @@ import { Message, MessageType } from '../message';
 })
 export class MessageInputComponent implements OnInit {
   message = {
-    author: '',
     content: '',
     date: '',
     type: MessageType.TEXT
@@ -30,6 +29,8 @@ export class MessageInputComponent implements OnInit {
       this.message['type'] = this.message['url'].length ? MessageType.IMAGE : MessageType.TEXT;
     }
     const message = JSON.parse(JSON.stringify(this.message));
-    this.messagesService.addMessage(message);
+    this.messagesService
+      .sendMessage(message)
+      .subscribe(response => console.log(response), error => console.error(error));
   }
 }

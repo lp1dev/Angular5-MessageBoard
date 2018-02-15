@@ -6,6 +6,12 @@
     background-color: white;
     color: #8f8f8f;
     box-shadow: 1px 1px rgba(0,0,0,0.2);
+    display: flex;
+}
+
+#header-app-name {
+    margin: auto;
+    padding-right: 5vh;
 }
 
 #messages {
@@ -22,4 +28,20 @@
 #container {
     display: flex;
     padding: 1vh;
+}
+
+a {
+    text-decoration: none !important;
+    color: inherit !important;
+    margin: 1vh;
+}
+
+.active {
+    text-decoration: underline !important;
+    font-weight: bold;
+}
+
+#header-links {
+    text-align: left;
+    margin-left: 2vh;
 }

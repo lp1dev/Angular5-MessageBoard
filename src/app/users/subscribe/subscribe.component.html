@@ -1,0 +1,15 @@
+<div id="subscribe-form">
+  <div *ngIf="error?.length">{{ error }} </div>
+  <input [(ngModel)]="user.login" placeholder="login" required/><br/>
+  <input [(ngModel)]="user.password"
+  #passwordModel="ngModel"
+  placeholder="password"
+  type="password" 
+  minLength="4"
+  maxLength="10"
+  required/><br/>
+  <input placeholder="password confirm" type="password" required/><br/>
+  <input [(ngModel)]="user.avatar" placeholder="avatar url" required/><br/>
+  <input [(ngModel)]="user.color" placeholder="color" required/><br/>
+  <button (click)="subscribe()" *ngIf="passwordModel.valid">Subscribe</button>
+</div>

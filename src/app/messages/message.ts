@@ -5,7 +5,7 @@ export enum MessageType {
 }
 
 export interface Message {
-    author: string;
+    author?: string;
     content: string;
     date: string;
     type: MessageType;

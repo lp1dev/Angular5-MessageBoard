@@ -8,12 +8,9 @@ import { UsersService } from '../users.service';
 })
 export class UserComponent implements OnInit {
 
-  constructor(private usersService: UsersService) { }
+  constructor(public usersService: UsersService) { }
 
   ngOnInit() {
-    this.usersService
-    .login('test', 'test4')
-    .subscribe((response) => console.log(response),
-                (error) => console.error(error));
+    this.usersService.loadUser();
   }
 }

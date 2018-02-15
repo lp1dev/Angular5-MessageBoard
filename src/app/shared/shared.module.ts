@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RestService } from './rest.service';
 import { ApiConfig } from './config';
+import { WebSocketService } from './web-socket.service';
 
 
 @NgModule({
@@ -11,6 +12,6 @@ import { ApiConfig } from './config';
     HttpClientModule
   ],
   declarations: [],
-  providers: [RestService, ApiConfig]
+  providers: [RestService, ApiConfig, WebSocketService]
 })
 export class SharedModule { }

@@ -3,13 +3,17 @@ import { CommonModule } from '@angular/common';
 import { UsersService } from './users.service';
 import { SharedModule } from '../shared/shared.module';
 import { UserComponent } from './user/user.component';
+import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
+import { SubscribeComponent } from './subscribe/subscribe.component';
 
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     SharedModule
   ],
-  declarations: [UserComponent],
+  declarations: [UserComponent, LoginComponent, SubscribeComponent],
   providers: [UsersService],
   exports: [UserComponent]
 })

@@ -1,9 +1,11 @@
-import { Directive, HostListener, ElementRef } from '@angular/core';
+import { Input, Directive, HostListener, ElementRef } from '@angular/core';
 
 @Directive({
   selector: '[appMessageHide]'
 })
 export class MessageHideDirective {
+  @Input('appMessageHide') appMessageHide: string;
+
 
   @HostListener('click') onClick () {
     const parent = this.el.nativeElement.parentElement;

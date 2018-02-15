@@ -1,15 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Message } from './message';
-import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { RestService } from '../shared/rest.service';
 
 @Injectable()
 export class MessagesService {
   private messages: Message[] = [];
-  private messagesSubject = new Subject<Message[]>();
+  private messagesSubject = new BehaviorSubject<Message[]>([]);
+  private messagesObservable = this.messagesSubject.asObservable();
 
   constructor(private restService: RestService) {
+  }
+
+  sendMessage(message): Observable<Message[]> {
+    return this.restService.sendMessage(message);
   }
 
   loadMessages(): void {
@@ -26,7 +31,7 @@ export class MessagesService {
    if (!this.messages.length) {
      this.loadMessages();
    }
-   return this.messagesSubject.asObservable();
+   return this.messagesObservable;
   }
 
   addMessage(message: Message) {

@@ -1,6 +1,6 @@
-<div class="message" [ngClass]="{alternate: index % 2}" 
+<div *ngIf="message.content || message.url" class="message" [ngClass]="{alternate: index % 2}" 
 [ngSwitch]="message.type">
-  <div class="message-hide" appMessageHide>X</div>
+  <div class="message-hide" appMessageHide="1">X</div>
   <!-- Text Message -->
   <div class="text-message" *ngSwitchCase="messageType.TEXT">
     <span class="message-author">{{ message.author }}</span>
@@ -18,7 +18,7 @@
   <div class="video-message" *ngSwitchCase="messageType.VIDEO">
       <span class="message-author">{{ message.author }}</span>
       <i class="message-date">{{ message.date | date }}</i><br/>
-      <iframe width="560" height="315" [attr.src]="safeUrl"
+      <iframe width="460" height="315" [attr.src]="safeUrl"
       frameborder="0" allow="autoplay; encrypted-media" 
       allowfullscreen>
     </iframe><br/>
