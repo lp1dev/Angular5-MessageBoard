@@ -11,7 +11,8 @@ export class MessageInputComponent implements OnInit {
   message = {
     content: '',
     date: '',
-    type: MessageType.TEXT
+    type: MessageType.TEXT,
+    url: ''
   };
 
   constructor(public messagesService: MessagesService) {

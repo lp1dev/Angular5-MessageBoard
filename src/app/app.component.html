@@ -8,7 +8,7 @@
     </div>
     <!-- <div id="header-app-name"> {{ appName }} </div> -->
   </div>
-  <app-message-input *ngIf="usersService.user"></app-message-input>
+  <app-message-input *ngIf="usersService?.user"></app-message-input>
   <div id="container">
     <app-hashtag-area [hashtags]="hashtags"></app-hashtag-area>
     <router-outlet></router-outlet>

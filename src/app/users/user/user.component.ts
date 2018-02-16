@@ -11,6 +11,6 @@ export class UserComponent implements OnInit {
   constructor(public usersService: UsersService) { }
 
   ngOnInit() {
-    this.usersService.loadUser();
+    // this.usersService.loadUser();
   }
 }

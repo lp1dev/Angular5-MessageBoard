@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Optional } from '@angular/core';
 import { messages } from './messages/mock';
 import { UsersService } from './users/users.service';
 
@@ -12,7 +12,7 @@ export class AppComponent {
   messages = messages;
   hashtags = [];
 
-  constructor(public usersService: UsersService) {
+  constructor(@Optional() public usersService: UsersService) {
   }
 
 

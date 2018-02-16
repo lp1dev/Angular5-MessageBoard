@@ -7,5 +7,6 @@ export const appRoutes: Routes = [
     {path: '', redirectTo: '/messages', pathMatch: 'full'},
     {path: 'messages', component: MessagesComponent},
     {path: 'login', component: LoginComponent},
-    {path: 'subscribe', component: SubscribeComponent}
+    {path: 'subscribe', component: SubscribeComponent},
+    {path: '**', redirectTo: '/messages'}
 ];
